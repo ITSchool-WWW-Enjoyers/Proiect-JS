@@ -30,6 +30,7 @@ function displayTime(){
     let minutes = currentTime.getMinutes();
     let seconds = currentTime.getSeconds();
 
+    //Aflam rotatia acelor in grade
     let hoursHandRotation = 30*hours + minutes/2;
     let minutesHandRotation = 6*minutes;
     let secondsHandRotation = 6*seconds;

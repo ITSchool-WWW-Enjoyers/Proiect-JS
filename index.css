@@ -25,8 +25,8 @@
 .clock::before{
     content: '';
     position: absolute;
-    width: 9px;
-    height: 9px;
+    width: 0.6rem;
+    height: 0.6rem;
     border-radius: 50%;
     background-color: rgba(147, 147, 152, 0.959);
     z-index: 1000;
@@ -40,14 +40,14 @@
     border-radius: 50%;
 }
 
-.hours-container .number{
+.number{
     position: absolute;
     transform: rotate(calc(30deg * var(--hour-rotation))); 
-    inset: 22px;
+    inset: 1.3rem;
     text-align: center;
 }
 
- .number b{
+.number b{
     transform: rotate(calc(-30deg * var(--hour-rotation)));
     display: inline-block;
     font-size: 1.2rem; 
@@ -56,51 +56,38 @@
 
 .number .bold {
     color: #4c4a4a;
-    font-size: 1.29rem; 
+    font-size: 1.3rem; 
 }
 
+	
 .clock-hands-container{
     position: absolute;
 }
 
-.hand{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
 
-.hand span{
+.clock-hands-container span{
     position: absolute;
     width: 0.4rem;
     border-radius: 100% 100% 5px 5px;
-}
-
-.hours-hand{
-    background-color: #16161658;
-    height: 55px;
     bottom: 50%;
     left: 50%;
     transform-origin: bottom;
     transform: translateX(-50%);    
 }
 
+.hours-hand{
+    background-color: #16161658;
+    height: 3.4rem;
+}
+
 .minutes-hand{
     background-color: #16161658;
-    height: 84px;
-    bottom: 50%;
-    left: 50%;
-    transform-origin: bottom;
-    transform: translateX(-50%);
+    height: 5.2rem;
 }
 
 .seconds-hand{
     background-color: #e53b1d;
-    height: 94px;
-    bottom: 50%;
-    left: 50%;
-    transform-origin: bottom;
-    transform: translateX(-50%);
+    height: 5.8rem;
 }
 
 .hour-tick {    
