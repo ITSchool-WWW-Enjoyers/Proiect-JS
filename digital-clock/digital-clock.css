@@ -1,0 +1,36 @@
+
+.main{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.digital-clock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.digital-clock span{
+    font-size: 6rem;
+    text-shadow: -4px -4px 10px rgba(67, 67, 67, 0.651);
+}
+
+
+@media (min-width: 700px) {
+
+    .digital-clock span{
+        font-size: 10rem;
+    }
+
+}
+
+@media (min-width: 1500px) {
+
+    .digital-clock span{
+        font-size: 15rem;
+    }
+}

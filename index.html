@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proiect Java Script</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="title">Ceas Analogic & Digital Online</h1>
+        <img class="light-mode-icon" id="light-mode-switch" src="light-mode.svg" alt="light mode">
+    </header>
+    <div class="main">
+        <div class="clock-container">
+            <div class="clock">
+                <div class="hours-container">
+                    <div class="number" style="--hour-rotation: 1"><b>1</b></div>
+                    <div class="number" style="--hour-rotation: 2"><b>2</b></div>
+                    <div class="number" style="--hour-rotation: 3"><b class="bold">3</b></div>
+                    <div class="number" style="--hour-rotation: 4"><b>4</b></div>
+                    <div class="number" style="--hour-rotation: 5"><b>5</b></div>
+                    <div class="number" style="--hour-rotation: 6"><b class="bold">6</b></div>
+                    <div class="number" style="--hour-rotation: 7"><b>7</b></div>
+                    <div class="number" style="--hour-rotation: 8"><b>8</b></div>
+                    <div class="number" style="--hour-rotation: 9"><b class="bold">9</b></div>
+                    <div class="number" style="--hour-rotation: 10"><b>10</b></div>
+                    <div class="number" style="--hour-rotation: 11"><b>11</b></div>
+                    <div class="number" style="--hour-rotation: 12"><b class="bold">12</b></div>
+                </div>
+                <div class="clock-hands-container">
+                    <div id="hours" class="hand">
+                        <span class="hours-hand"></span>
+                    </div>
+                    <div id="minutes" class="hand">
+                        <span class="minutes-hand"></span>
+                    </div>
+                    <div id="seconds" class="hand">
+                        <span class="seconds-hand"></span>
+                    </div>
+                </div>
+                <div class="hour-ticks-container">
+                    <div class="hour-tick" style="--hour-tick-rotation: 0"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 1"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 2"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 3"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 4"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 5"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 6"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 7"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 8"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 9"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 10"></div>
+                    <div class="hour-tick" style="--hour-tick-rotation: 11"></div>
+                </div>
+                <div class="minute-ticks-container">
+                    <div class="minute-tick" style="--minute-tick-rotation: 1"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 2"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 3"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 4"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 6"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 7"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 8"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 9"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 11"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 12"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 13"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 14"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 16"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 17"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 18"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 19"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 21"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 22"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 23"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 24"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 26"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 27"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 28"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 29"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 31"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 32"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 33"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 34"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 36"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 37"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 38"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 39"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 41"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 42"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 43"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 44"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 46"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 47"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 48"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 49"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 51"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 52"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 53"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 54"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 56"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 57"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 58"></div>
+                    <div class="minute-tick" style="--minute-tick-rotation: 59"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="date-container">
+                <p id="date-label"></p>
+            </div>
+            <div class="time-zone-list">
+                <label for="timezone">Alege fusul orar:</label>
+                <select id="timezone">
+                    <option value="Europe/Bucharest">Europe/Bucharest</option>
+                </select>
+            </div>
+            <div class="a-group">
+                <a class="button" href="digital-clock/digital-clock.html">Ceas Digital</a>
+                <a class="button" href="index.html">Ceas Analogic</a>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
