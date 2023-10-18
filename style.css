@@ -68,5 +68,6 @@ body{
    
     .app{
         background-color:  rgba(77, 117, 117, 0);
+        margin-block-start: 0;
     }
 }
