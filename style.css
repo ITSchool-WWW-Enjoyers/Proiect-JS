@@ -23,12 +23,12 @@ header{
 
 
 .title{
-    font-size: 1rem;
+    font-size: 0.7rem;
 }
 
 
 .light-mode-icon{
-    width: 1.7rem;
+    width: 1rem;
 }
 
 
@@ -110,6 +110,14 @@ header{
 
 
 @media (min-width: 700px){
+
+    .title{
+        font-size: 1rem;
+    }
+    
+    .light-mode-icon{
+        width: 1.7rem;
+    }
 
     .footer-container{
         width: 50%;

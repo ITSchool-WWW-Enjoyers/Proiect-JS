@@ -6,6 +6,7 @@ let secondsHand = document.getElementById('seconds');
 let dateLabel = document.getElementById('date-label');
 let timezoneSelector = document.getElementById("timezone");
 
+//Documentatia: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf
 let timeZones = Intl.supportedValuesOf('timeZone');
 timeZones.forEach((timezone) => {
     let option = document.createElement('option');
