@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&family=Jua&family=Roboto+Condensed:wght@300&family=Tilt+Neon&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <div class="input-container">
+            <input type="text" id="cityInput" placeholder="Enter city name">
+            <button id="searchBtn">Search</button>
+        </div>
+        <div id="weatherData" class="hidden">
+            <div class="weatherData-info">
+                <h2>Today:</h2>
+                <p>Temperature: <span id="temperature"></span>°C</p>
+                <p>Weather: <span id="weatherDescription"></span></p>
+                <p>Humidity: <span id="humidity"></span>%</p>
+                <p>Wind Speed: <span id="windSpeed"></span> m/s</p>
+            </div>
+        </div>
+
+        <div id="forecastData" class="hidden">
+            <h2 class="title">3-Day Forecast:</h2>
+            <div class="weatherForecastContainer">
+                <div class="weatherData-info">
+                    <h2>Tomorow:</h2>
+                    <p>Temperature: <span id="temperatureForecast1"></span>°C</p>
+                    <p>Weather: <span id="weatherDescriptionForecast1"></span></p>
+                    <p>Humidity: <span id="humidityForecast1"></span>%</p>
+                    <p>Wind Speed: <span id="windSpeedForecast1"></span> m/s</p>
+                </div>
+
+                <div class="weatherData-info">
+                    <h2>The day after tomorow:</span></h2>
+                    <p>Temperature: <span id="temperatureForecast2"></span>°C</p>
+                    <p>Weather: <span id="weatherDescriptionForecast2"></span></p>
+                    <p>Humidity: <span id="humidityForecast2"></span>%</p>
+                    <p>Wind Speed: <span id="windSpeedForecast2"></span> m/s</p>
+                </div>
+
+                <div class="weatherData-info">
+                    <h2>The third day:</span></h2>
+                    <p>Temperature: <span id="temperatureForecast3"></span>°C</p>
+                    <p>Weather: <span id="weatherDescriptionForecast3"></span></p>
+                    <p>Humidity: <span id="humidityForecast3"></span>%</p>
+                    <p>Wind Speed: <span id="windSpeedForecast3"></span> m/s</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js" type="module"></script>
+</body>
+
+</html>
