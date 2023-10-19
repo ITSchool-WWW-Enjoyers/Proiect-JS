@@ -174,19 +174,29 @@ The function is used in the startDrawing function in order for the user to be ab
 */
 
 function draw(e) {
-    if(!drawRectangle.checked) {
-        if(!drawEllipse.checked) {
-            if(!drawTriangle.checked) {
-                if (!drawing) return;
+    if(drawRectangle.checked) {
+        return;
+    };
 
-                let { x, y } = getMousePos(canvas, e);
-            
-                context.lineTo(x, y);
-                context.stroke();
-            } return;
-        } return;
-    } return;
+    if(drawEllipse.checked) {
+        return;
+    };
+
+    if(drawTriangle.checked) {
+        return;
+    };
+
+    if (!drawing) {
+        return;
+    };
+    
+    let { x, y } = getMousePos(canvas, e);
+
+    context.lineTo(x, y);
+    context.stroke();
 };
+
+canvas.addEventListener("mousemove", draw);
 
 /* Draw Square
 
@@ -206,16 +216,20 @@ Event is called in the draw function.
 
 function drawSquare(e) {
     if(drawRectangle.checked) {
-        if (!drawing) return;
+        return;
+    };
 
-        let { x, y } = getMousePos(canvas, e);
-    
-        let width = x - rectStart.x;
-        let height = y - rectStart.y;
-    
-        context.rect(rectStart.x, rectStart.y, width, height);
-        context.stroke();
-    } return;
+    if (!drawing) {
+        return;
+    };
+
+    let { x, y } = getMousePos(canvas, e);
+
+    let width = x - rectStart.x;
+    let height = y - rectStart.y;
+
+    context.rect(rectStart.x, rectStart.y, width, height);
+    context.stroke();
 };
 
 /* Draw Ellipse
@@ -239,23 +253,27 @@ Event is called in the draw function.
 */
 
 function drawCircle(e) {
-    if (drawEllipse.checked) {
-        if (!drawing) return;
-
-        let { x, y } = getMousePos(canvas, e);
-
-        let width = x - rectStart.x;
-        let height = y - rectStart.y;
-
-        let centerX = rectStart.x + width / 2;
-        let centerY = rectStart.y + height / 2;
-        let radiusX = Math.abs(width / 2);
-        let radiusY = Math.abs(height / 2);
-
-        context.beginPath();
-        context.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, 2 * Math.PI);
-        context.stroke();
+    if (!drawEllipse.checked) {
+        return
     };
+
+    if (!drawing) {
+        return;
+    };
+
+    let { x, y } = getMousePos(canvas, e);
+
+    let width = x - rectStart.x;
+    let height = y - rectStart.y;
+
+    let centerX = rectStart.x + width / 2;
+    let centerY = rectStart.y + height / 2;
+    let radiusX = Math.abs(width / 2);
+    let radiusY = Math.abs(height / 2);
+
+    context.beginPath();
+    context.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, 2 * Math.PI);
+    context.stroke();
 };
 
 /* Draw Triangle
@@ -275,30 +293,31 @@ Event is called in the draw function.
 */
 
 function drawTriangl(e) {
-    if (drawTriangle.checked) {
-        if (!drawing) return;
+    if (!drawTriangle.checked) {
+        return;
+    };
 
-        let { x, y } = getMousePos(canvas, e);
+    if (!drawing) {
+        return;
+    };
 
-        const sideLength = Math.sqrt(Math.pow(x - rectStart.x, 2) + Math.pow(y - rectStart.y, 2));
+    let { x, y } = getMousePos(canvas, e);
 
-        const xOffset = (x - rectStart.x) / 2;
-        const yOffset = (Math.sqrt(3) / 2) * sideLength;
+    const sideLength = Math.sqrt(Math.pow(x - rectStart.x, 2) + Math.pow(y - rectStart.y, 2));
 
-        const x2 = rectStart.x + xOffset;
-        const y2 = rectStart.y + yOffset;
+    const xOffset = (x - rectStart.x) / 2;
+    const yOffset = (Math.sqrt(3) / 2) * sideLength;
 
-        context.beginPath();
-        context.moveTo(rectStart.x, rectStart.y);
-        context.lineTo(x, y);
-        context.lineTo(x2, y2);
-        context.closePath();
-        context.stroke();
-    }
-}
+    const x2 = rectStart.x + xOffset;
+    const y2 = rectStart.y + yOffset;
 
-
-canvas.addEventListener("mousemove", draw);
+    context.beginPath();
+    context.moveTo(rectStart.x, rectStart.y);
+    context.lineTo(x, y);
+    context.lineTo(x2, y2);
+    context.closePath();
+    context.stroke();
+};
 
 /* Canvas Reset Tool
 
@@ -370,13 +389,13 @@ function undo() {
         img.onload = () => {
             context.drawImage(img, 0, 0);
         };
-    }
-}
+    };
+};
 
 window.addEventListener("keydown", (ev) => {
     if (ev.key === "z" && ev.ctrlKey) {
         undo();
-    }
+    };
 });
 
 undoButton.addEventListener("click", undo);
@@ -403,17 +422,17 @@ function redo() {
         img.onload = () => {
             context.clearRect(0, 0, canvas.width, canvas.height);
             context.drawImage(img, 0, 0);
-        }
+        };
         redoStates.pop();
-    }
-}
+    };
+};
 
 window.addEventListener("keydown", (ev) => {
     if (drawingStateNumber > checkStateNumber) {
         redoStates = [];
     } else if (ev.key === "y" && ev.ctrlKey) {
         redo();
-    }
+    };
 });
 
 redoButton.addEventListener("click", () => {
@@ -421,7 +440,7 @@ redoButton.addEventListener("click", () => {
         redoStates = [];
     } else {
         redo();
-    }
+    };
 });
 
 /* Increase the width of the shape with a keyboard combination
