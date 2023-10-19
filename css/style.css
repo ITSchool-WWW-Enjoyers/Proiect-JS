@@ -1,14 +1,11 @@
-:root{
-    --white-color: #fafafa;
-    --redd-color:
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
+  ul li{
+    list-style: none;
+  }
   body {
     background: linear-gradient(90deg, #B0E57C, #48C172);
     display: flex;
@@ -22,13 +19,13 @@
   
   .container {
     background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
+    border-radius: 0.6rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    padding: 1.30rem;
     text-align: center;
     backdrop-filter: blur(5px);
-    width: 60%; /* Acesta este containerul mai mare */
-    max-width: 600px; /* Acesta este containerul mai mare */
+    width: 60%; 
+    max-width: 38rem; 
   }
   
   h1 {
@@ -39,31 +36,39 @@
     padding: 10px;
     width: 100%;
     border: none;
-    border-bottom: 2px solid #333;
-    margin: 10px 0;
-    font-size: 16px;
+    border-bottom: 0.2rem solid #333;
+    margin: 0.6rem ;
+    font-size: 1rem;
     outline: none;
+
   }
-  
-  button {
-    background: #48C172;
-    color: #fff;
+  #createTask{
+    background: #B0E57C;
+    color: #000;
+  }
+  #createTask:hover {
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    color: #000;
+    background: #48C172;
+  }
+  button {
+      width: 130px;
+      height: 40px;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px 25px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+      outline: none;
   }
   
-  button:hover {
-    background: #3F9E63;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
   
   li {
     display: flex;
