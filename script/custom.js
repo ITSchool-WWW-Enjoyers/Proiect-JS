@@ -9,7 +9,7 @@ createTask.addEventListener('click', () => {
     if (taskContent) {
         const newTask = document.createElement('li');
         newTask.innerHTML =  `
-            <input type='checkbox' class='checkbox'>
+            <input type='checkbox'>
             <span>${taskContent}</span>
             <button class='edit'> Edit </button>
             <button class='delete'> Delete</button>
