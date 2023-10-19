@@ -1,0 +1,24 @@
+{
+  "name": "proiect-js",
+  "version": "1.0.0",
+  "description": "Construiește o aplicație web interactivă",
+  "main": "index.js",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victoria27199/Proiect-JS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victoria27199/Proiect-JS/issues"
+  },
+  "homepage": "https://github.com/victoria27199/Proiect-JS#readme",
+  "dependencies": {
+    "vite": "^4.5.0"
+  }
+}
