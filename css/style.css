@@ -1,67 +1,102 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+:root{
+    --white-color: #fafafa;
+    --redd-color:
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: linear-gradient(90deg, #B0E57C, #48C172);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
     margin: 0;
-}
-
-.container {
-    width: 400px;
-    background-color: #fff;
-    padding: 20px;
+  }
+  
+  .container {
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
     text-align: center;
-    color: #0070C0;
-}
-
-input[type="text"] {
-    width: 70%;
-    padding: 8px;
-    border: 2px solid #0070C0;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #0070C0;
+    backdrop-filter: blur(5px);
+    width: 60%; /* Acesta este containerul mai mare */
+    max-width: 600px; /* Acesta este containerul mai mare */
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  #taskInput {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #333;
+    margin: 10px 0;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  button {
+    background: #48C172;
     color: #fff;
     border: none;
-    padding: 8px 15px;
+    padding: 10px 20px;
     border-radius: 5px;
+    margin: 5px;
     cursor: pointer;
-}
-
-ul {
-    list-style-type: none;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background: #3F9E63;
+  }
+  
+  ul {
+    list-style: none;
     padding: 0;
-}
-
-li {
+  }
+  
+  li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 0;
     padding: 10px;
-    border: 2px solid #0070C0;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
-    background-color: #f0f0f0;
-    transition: background-color 0.3s;
-}
-
-li:hover {
-    background-color: #e0e0e0;
-}
-
-input[type="checkbox"] {
+    margin: 5px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  li input[type="checkbox"] {
     margin-right: 10px;
-}
+  }
+  
+  li span {
+    flex-grow: 1;
+  }
+  
 
-.checkbox{
-    background-color: red;
-}
+  .delete {
+    background: #FF6347;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .edit {
+    margin-right: 5px;
+    background: blue;
+  }
+  
