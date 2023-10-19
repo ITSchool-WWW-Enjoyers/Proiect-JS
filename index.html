@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Dezvoltare Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="/javascript/quiz.js"></script>
+    <script defer src="/javascript/timer.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body>
+    <div class="card bg-light p-3 border rounded container ceva" >
+        <div>
+            <h2 class="h2-quiz">Quiz moto</h2>
+            <div id="js_timer" class="cont-timer">
+                <div id="timer" class="timer"> 
+                    00:00
+                </div>
+                <div class="timer-start-btn">
+                    <p class="text-uppercase fw-bold" >Start Quiz</p>
+                    <button id="startTimer" class="start-btn"><span class="material-icons">play_arrow</span> </button>
+                </div>
+            </div>
+        </div>
+       
+    <form id="quizForm" class="d-none">
+        <div class="question">
+            <p >
+                1. Care este una dintre cele mai faimoase mărci de motociclete din Statele Unite?
+            </p>
+            <div class="options">
+                <input type="radio" name="q1" value="f" > Honda<br>
+                <input type="radio" name="q1" value="a"> Harley-Davidson<br>
+                <input type="radio" name="q1" value="f"> Yamaha<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>
+                2. Care dintre următoarele tipuri de motociclete este specializat pentru off-road și teren accidentat?
+            </p>
+            <div class="options">
+                <input type="radio" name="q2" value="f"> Cruiser<br>
+                <input type="radio" name="q2" value="f"> Sportbike<br>
+                <input type="radio" name="q2" value="a"> Motocross <br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>
+                3. Cine este cunoscut ca "Regele Motocicletelor" și a fondat compania Indian Motorcycle în 1901?
+            </p>
+            <div class="options">
+                <input type="radio" name="q3" value="f"> Soichiro Honda<br>
+                <input type="radio" name="q3" value="f"> Burt Munro<br>
+                <input type="radio" name="q3" value="a"> George Hendee<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>
+                4. Care este cel mai mare producător de motociclete din Japonia?
+            </p>
+            <div class="options">
+                <input type="radio" name="q4" value="f"> Suzuki<br>
+                <input type="radio" name="q4" value="f"> Kawasaki<br>
+                <input type="radio" name="q4" value="a"> Honda<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>
+                5. La ce se referă acronimul "ABS" în contextul motocicletelor?
+            </p>
+            <div class="options">
+                <input type="radio" name="q5" value="f">  Advanced Bike System<br>
+                <input type="radio" name="q5" value="a"> Anti-Lock Braking System<br>
+                <input type="radio" name="q5" value="f"> Automatic Balance System<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>
+                6. Care este cel mai mare rally de motociclete din lume, desfășurat anual în Dakota de Sud, SUA?
+            </p>
+            <div class="options">
+                <input type="radio" name="q6" value="f"> Isle of Man TT<br>
+                <input type="radio" name="q6" value="a"> Sturgis Motorcycle Rally<br>
+                <input type="radio" name="q6" value="f"> Daytona Bike Week<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>
+                7. Ce este un "chopper" în lumea motocicletelor?
+            </p>
+            <div class="options">
+                <input type="radio" name="q7" value="f"> Motocicletă de curse<br>
+                <input type="radio" name="q7" value="f"> Motocicletă enduro<br>
+                <input type="radio" name="q7" value="a">  Motocicletă personalizată cu șasiu modificat<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>
+                8. Care este numele unei celebre curse de motociclete care se desfășoară pe străzile publice ale Insulei Man?
+            </p>
+            <div class="options">
+                <input type="radio" name="q8" value="a"> Isle of Man TT<br>
+                <input type="radio" name="q8" value="f"> MotoGP<br>
+                <input type="radio" name="q8" value="f"> Superbike World Championship<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>
+                9. Cine este cunoscut ca "Doctorul" în lumea motociclismului și este un campion de MotoGP?
+            </p>
+            <div class="options">
+                <input type="radio" name="q9" value="f"> Marc Marquez<br>
+                <input type="radio" name="q9" value="f"> Jorge Lorenzo<br>
+                <input type="radio" name="q9" value="a"> Valentino Rossi<br>
+            </div>
+        </div>
+
+        <div class="question ">
+            <p > 
+                10. Ce înseamnă "cruiser" în contextul motocicletelor?
+            </p>
+            <div class="options">
+                <input type="radio" name="q10" value="a"> Motocicletă stilizată pentru confort și croazieră relaxată<br>
+                <input type="radio" name="q10" value="f"> Motocicletă ușoară pentru începători<br>
+                <input type="radio" name="q10" value="f"> Motocicletă de turism de lungă distanță<br>
+            </div>
+        </div>
+        <div class="button">
+            <button id="calculateButton" type="button" class="btn btn-outline-success rounded-5 m-2 ">Verifică răspunsurile</button>
+            <button id="resetButton" type="button" class="btn btn-outline-danger rounded-5 m-2" >Resetează formularul</button>
+        </div>
+    </form>
+    <div id="result" ></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </div>
+</body>
+</html>
