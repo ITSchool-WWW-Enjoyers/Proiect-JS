@@ -1,0 +1,142 @@
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-image: url(Images/sky.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.container {
+    width: 100%;
+    min-width: 100vh;
+    padding: 1rem;
+
+
+}
+
+.todo {
+
+    width: 100%;
+    max-width: 34rem;
+    background-color: rgba(6, 0, 0, 0.346);
+    color: white;
+    margin: 6rem auto 1.5rem;
+    padding: 3rem 2rem 5.5rem;
+    border-radius: 1rem;
+}
+
+.picture {
+
+    height: 10%;
+    width: 17%;
+}
+
+.todo h2 {
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    font-size: 2.6rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(124, 115, 128, 0.38);
+    border-radius: 2rem;
+}
+
+input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0.6rem;
+    color: white;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 1rem 3rem;
+    background-color: rgba(87, 126, 225, 0.545);
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 3rem;
+}
+
+button:hover {
+    background-color: rgba(216, 226, 255, 0.76);
+    color: rgba(87, 126, 225, 0.545);
+
+}
+
+ul li {
+    list-style: none;
+    font-size: 1rem;
+    padding: 0.7rem 0.5rem 0.7rem 3rem;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-image: url(Images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 0.7rem;
+    left: 0.5rem;
+
+}
+
+ul li.checked {
+    color: rgb(255, 255, 255);
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url(Images/checked.png)
+}
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 0.3rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    line-height: 3rem;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover {
+    background: #202020;
+
+}
+
+.title {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+::placeholder {
+    color: rgb(223, 223, 223);
+}
