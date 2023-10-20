@@ -11,12 +11,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
 }
 
 .digital-clock span{
     font-size: 5.5rem;
     text-shadow: -4px -4px 10px rgba(67, 67, 67, 0.651);
+    letter-spacing: 0.3rem;
 }
 
 

@@ -1,13 +1,14 @@
+import './light-mode';
 
-let hoursHand = document.getElementById('hours');
-let minutesHand = document.getElementById('minutes');
-let secondsHand = document.getElementById('seconds');
+const hoursHand = document.getElementById('hours');
+const minutesHand = document.getElementById('minutes');
+const secondsHand = document.getElementById('seconds');
 
-let dateLabel = document.getElementById('date-label');
-let timezoneSelector = document.getElementById("timezone");
+const dateLabel = document.getElementById('date-label');
+const timezoneSelector = document.getElementById("timezone");
 
 //Documentatia: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf
-let timeZones = Intl.supportedValuesOf('timeZone');
+const timeZones = Intl.supportedValuesOf('timeZone');
 timeZones.forEach((timezone) => {
     let option = document.createElement('option');
     option.value = timezone;
@@ -20,12 +21,13 @@ timezoneSelector.addEventListener('change', displayTime);
 
 function displayTime(){
     
+    const currentLocale = navigator.language;
     const selectedTimezone = timezoneSelector.value;
-    const date = new Date().toLocaleString('en-EN',  {timeZone: selectedTimezone});
+    const date = new Date().toLocaleDateString(currentLocale,  {timeZone: selectedTimezone});
+    const dateTime = new Date().toLocaleString('en-EN',  {timeZone: selectedTimezone});
 
     dateLabel.innerText = date;
-
-    let currentTime = new Date(date);
+    let currentTime = new Date(dateTime);
 
     let hours = currentTime.getHours();
     let minutes = currentTime.getMinutes();
@@ -40,19 +42,9 @@ function displayTime(){
     minutesHand.style.transform = `rotate(${minutesHandRotation}deg)`;
     secondsHand.style.transform = `rotate(${secondsHandRotation}deg)`;
 
-    console.log('S-a actualizat ora');
-
 }
 
+displayTime();
 setInterval(displayTime, 1000);
 
-
-document.getElementById('light-mode-switch').addEventListener('click', lightMode);
-
-//Documentatia: https://www.w3schools.com/howto/howto_js_toggle_dark_mode.asp
-function lightMode() {
-    let element = document.body;
-    element.classList.toggle("light-mode");
-    console.log('S-a schimbat modul de luminozitate');
-}
 

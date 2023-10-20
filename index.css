@@ -98,7 +98,7 @@
     left: 50%;
     top: 50%;
     transform-origin: 0 110px;
-    transform: translateY(-110px) rotate(calc(var(--hour-tick-rotation) * 360deg / 12)); 
+    transform: translateY(-110px) rotate(calc(30deg * var(--hour-tick-rotation))); 
 }
  
  
@@ -110,7 +110,7 @@
      left: 50%;
      top: 50%;
      transform-origin: 0 110px;
-     transform: translateY(-110px) rotate(calc(var(--minute-tick-rotation) * 30deg / 5)); 
+     transform: translateY(-110px) rotate(calc(6deg * var(--minute-tick-rotation))); 
 }
 
 
@@ -157,13 +157,13 @@
         width: 0.25rem;
         height: 0.62rem;  
         transform-origin: 0 150px;
-        transform: translateY(-150px) rotate(calc(var(--hour-tick-rotation) * 360deg / 12)); 
+        transform: translateY(-150px) rotate(calc(30deg * var(--hour-tick-rotation)));  
     }
 
     .minute-tick {
         width: 0.1rem;
         height: 0.5rem;
         transform-origin: 0 150px;
-        transform: translateY(-150px) rotate(calc(var(--minute-tick-rotation) * 30deg / 5)); 
+        transform: translateY(-150px) rotate(calc(6deg * var(--minute-tick-rotation))); 
     }
 }
