@@ -4,9 +4,13 @@ Defining the various buttons that handle events such as Undo, Redo, Color-Pick e
 
 */
 
+const pen = document.getElementById("pen-tool");
+const strokeSize = document.getElementById("line-width");
+const eraser = document.getElementById("eraser-tool");
 const colorInput = document.getElementById("color-picker"); 
 const resetTool = document.getElementById("reset-tool"); 
 const fillTool = document.getElementById("fill-tool"); 
+const solidSelect = document.getElementById("solid-shape");
 const undoButton = document.getElementById("undobutton"); 
 const redoButton = document.getElementById("redobutton"); 
 const drawRectangle = document.getElementById("drawRectangle");
@@ -61,6 +65,8 @@ let rectStart = getMousePos;
 Defining the color of the color picker SVG, as well as the drawing tool itself.
 We have an initial setting which sets the default color (black) for both by calling the function once.
 
+We check if the eraser is checked, so that we are not trying to update the colors of the eraser.
+
 */
 
 function colorChange() {
@@ -68,12 +74,40 @@ function colorChange() {
     const colorPickerPath = document.getElementById("current-color");
 
     colorPickerPath.style.fill = colorInput;
-    context.strokeStyle = colorInput;
-    context.fillStyle = colorInput;
+    
+    if(!eraser.checked) {
+        context.strokeStyle = colorInput;
+        context.fillStyle = colorInput;
+    };
 };
 
 colorChange();
-colorInput.addEventListener('input', colorChange);
+colorInput.addEventListener("input", colorChange);
+
+function lineWidth() {
+    const widthValue = strokeSize.value;
+
+    context.lineWidth = widthValue;
+};
+
+strokeSize.addEventListener("change", lineWidth);
+
+/* Eraser Function
+
+Definig the eraser function.
+
+If the eraser is clicked on, the function makes sure that the HTML Input marks it as checked, then it proceeds to overwrite the current color with white.
+
+*/
+
+function eraserTool() {
+    if(eraser.checked) {
+        context.strokeStyle = "#FFF";
+        context.fillStyle = "#FFF";
+    };
+};
+
+eraser.addEventListener("click", eraserTool);
 
 /* Start Draw Function
 
@@ -83,13 +117,7 @@ It check if the left click is pressed in order for the function to start;
 
 Sets the drawing defined at the start of the code to true (which is used later in the draw function itself);
 
-Calls for either of the following functions, if the requirments are met within those functions:
-- draw event;
-- drawSquare event;
-- drawCircle event;
-- drawTriangl event;
-
-Saves, the context;
+Checks if the pen HTML Input Element is checked, then calls for a colorChange and starts to draw;
 
 Finally, updates the drawingStateNumber by adding 1 to the total number of times the user has drawin on the canvas.
 
@@ -101,13 +129,15 @@ function startDrawing(e) {
     if (e.buttons === 1) {
         drawing = true;
         context.beginPath();
-        draw(e);
-        drawSquare(e);
-        drawCircle(e);
-        drawTriangl(e);
-        context.save();
+
+        if(pen.checked) {
+            colorChange();
+            draw(e);
+        };
+
         drawingStateNumber += 1;
     };
+    rectStart = getMousePos(canvas,e);
 };
 
 canvas.addEventListener("mousedown", startDrawing);
@@ -115,6 +145,8 @@ canvas.addEventListener("mousedown", startDrawing);
 /* End Draw Function
 
 Checks if drawing is set to true;
+
+Checks which shape is currently active so that it can call the function handling said shape in order for it to be drawn at mouse realease;
 
 "Pushes" the current state to drawingStates in order to be able to use the Undo/Redo functions properly.
 
@@ -128,13 +160,32 @@ The event is triggerd by releasing the left click, if the left click was within 
 
 function endDrawing(e) {
     if (drawing) {
+        if(drawRectangle.checked) {
+            colorChange();
+            drawSquare(e);
+        };
+
+        if(drawEllipse.checked) {
+            colorChange();
+            drawCircle(e);
+        };
+
+        if(drawTriangle.checked) {
+            colorChange();
+            drawTriangl(e);
+        };
+
         drawingStates.push(canvas.toDataURL()); 
         drawing = false;
     };
-    rectStart = getMousePos(canvas, e);
+
+    setTimeout(() => {
+        rectStart = 0; 
+    }, 0);
 };
 
 canvas.addEventListener("mouseup", endDrawing);
+
 
 /* Get Mouse Position Function
 
@@ -161,7 +212,7 @@ function getMousePos(canvas, e) {
 
 Checks is some conditions are met, and depending on which is true, executes the said drawing style/shape;
 
-If the drawing funfction is set to false, the function exits;
+If the drawing function is set to false, the function exits;
 
 Sets the x and y position to the mouse coordinates (after click);
 
@@ -189,7 +240,7 @@ function draw(e) {
     if (!drawing) {
         return;
     };
-    
+
     let { x, y } = getMousePos(canvas, e);
 
     context.lineTo(x, y);
@@ -210,26 +261,27 @@ Gets a width and a height for the current shape;
 
 Draw the rectangle from the initial mouse position to the latest one;
 
+If the solidSelect is checked, the shape will be filled;
+
 Event is called in the draw function.
 
 */
 
 function drawSquare(e) {
-    if(drawRectangle.checked) {
-        return;
-    };
-
     if (!drawing) {
         return;
-    };
-
+    }
+    
     let { x, y } = getMousePos(canvas, e);
 
     let width = x - rectStart.x;
     let height = y - rectStart.y;
 
-    context.rect(rectStart.x, rectStart.y, width, height);
-    context.stroke();
+    context.strokeRect(rectStart.x, rectStart.y, width, height);
+
+    if (solidSelect.checked) {
+        context.fillRect(rectStart.x, rectStart.y, width, height);
+    };
 };
 
 /* Draw Ellipse
@@ -248,15 +300,13 @@ Calculates the radius for both axis;
 
 Draws the ellipse from the initial mouse position to the latest one.
 
+If the solidSelect is checked, the shape will be filled;
+
 Event is called in the draw function.
 
 */
 
 function drawCircle(e) {
-    if (!drawEllipse.checked) {
-        return
-    };
-
     if (!drawing) {
         return;
     };
@@ -274,6 +324,10 @@ function drawCircle(e) {
     context.beginPath();
     context.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, 2 * Math.PI);
     context.stroke();
+
+    if (solidSelect.checked) {
+        context.fill();
+    };
 };
 
 /* Draw Triangle
@@ -288,15 +342,13 @@ Calculates the lenghts of each side so that the triangle is more or less equilat
 
 Draws the ellipse from the initial mouse position to the latest one.
 
+If the solidSelect is checked, the shape will be filled;
+
 Event is called in the draw function.
 
 */
 
 function drawTriangl(e) {
-    if (!drawTriangle.checked) {
-        return;
-    };
-
     if (!drawing) {
         return;
     };
@@ -317,6 +369,10 @@ function drawTriangl(e) {
     context.lineTo(x2, y2);
     context.closePath();
     context.stroke();
+
+    if (solidSelect.checked) {
+        context.fill();
+    };
 };
 
 /* Canvas Reset Tool
@@ -352,8 +408,11 @@ The event is called by clicking on the UI element "Fill".
 */
 
 function fillCanvas() {
-    context.fillRect(0,0,canvas.width,canvas.height);
-    drawingStates.push(canvas.toDataURL());
+    if(!eraser.checked) {
+        colorChange();
+        context.fillRect(0,0,canvas.width,canvas.height);
+        drawingStates.push(canvas.toDataURL());
+    };
 };
 
 fillTool.addEventListener("click", fillCanvas);
@@ -375,7 +434,7 @@ We are "popping" the undo state from the drawingStates Array;
 
 We are importing the previous state (-1) as an img at 0,0 coordinates;
 
-Finally we have the two buttons that handle the event (one is present on the UI and the other one is the combination of CTRL + "z").
+Finally we have the two ways to call the event (one is present on the UI and the other one is the combination of CTRL + "z" for Windows or CMD + "z" for MacOS).
 */
 
 function undo() {
@@ -386,14 +445,18 @@ function undo() {
         drawingStates.pop();
         const img = new Image();
         img.src = drawingStates[drawingStates.length - 1];
-        img.onload = () => {
+        img.addEventListener("load", () => {
             context.drawImage(img, 0, 0);
-        };
+        });
     };
 };
 
 window.addEventListener("keydown", (ev) => {
     if (ev.key === "z" && ev.ctrlKey) {
+        undo();
+    };
+
+    if (ev.metaKey === "z" && ev.ctrlKey) {
         undo();
     };
 });
@@ -412,25 +475,28 @@ We are importing the previous state (-1) as an img at 0,0 coordinates, however t
 
 Finally, we are "popping" the latest Redo state from the redoStates Array.
 
+We have the two ways to call the event (one is present on the UI and the other one is the combination of CTRL + "x" for Windows or CMD + "x" for MacOS).
+
 */
 
 function redo() {
     drawingStates.push(canvas.toDataURL());
     if (redoStates.length > 0) {
         const img = new Image();
-        img.src = redoStates[redoStates.length - 1];
-        img.onload = () => {
+        img.src = redoStates.pop();
+        img.addEventListener("load", () => {
             context.clearRect(0, 0, canvas.width, canvas.height);
             context.drawImage(img, 0, 0);
-        };
-        redoStates.pop();
+        });
     };
 };
 
 window.addEventListener("keydown", (ev) => {
     if (drawingStateNumber > checkStateNumber) {
         redoStates = [];
-    } else if (ev.key === "y" && ev.ctrlKey) {
+    } else if (ev.key === "x" && ev.ctrlKey) {
+        redo();
+    } else if (ev.metaKey === "x" && ev.ctrlKey) {
         redo();
     };
 });
@@ -446,16 +512,19 @@ redoButton.addEventListener("click", () => {
 /* Increase the width of the shape with a keyboard combination
 
 Defining the function that handles the event which increases the lineWidth of out pen/shape.
-The event is called upon pressing CTRL + " ; ".
+The event is called upon pressing CTRL + " [ " for Windows or CMD + "[" for MacOS.
 
 */
 
 function increaseSize(ev) {
     if (context.lineWidth === 25) {
         return
-    } else if (ev.key === ";" && ev.ctrlKey) {
+    } else if (ev.key === "[" && ev.ctrlKey) {
+        context.lineWidth += 1;
+    } else if (ev.key === "[" && ev.metaKey) {
         context.lineWidth += 1;
     };
+    strokeSize.value = context.lineWidth;
 };
 
 window.addEventListener("keydown",increaseSize);
@@ -463,16 +532,19 @@ window.addEventListener("keydown",increaseSize);
 /* Decrease the width of the shape with a keyboard combination
 
 Defining the function that handles the event which decreases the lineWidth of out pen/shape.
-The event is called upon pressing CTRL + " ' ".
+The event is called upon pressing CTRL + " ] " for Windows or CMD + "]" for MacOS.
 
 */
 
 function decreaseSize(ev) {
     if (context.lineWidth === 1) {
         return
-    } else if (ev.key === "'" && ev.ctrlKey) {
+    } else if (ev.key === "]" && ev.ctrlKey) {
+        context.lineWidth -= 1;
+    } else if (ev.key === "]" && ev.metaKey) {
         context.lineWidth -= 1;
     };
+    strokeSize.value = context.lineWidth;
 };
 
 window.addEventListener("keydown", decreaseSize);
