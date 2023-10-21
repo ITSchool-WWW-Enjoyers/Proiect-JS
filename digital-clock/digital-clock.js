@@ -1,4 +1,4 @@
-import '../light-mode';
+import '../light-mode.js';
 
 const timeSpan = document.getElementById('hours');
 

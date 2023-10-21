@@ -1,4 +1,4 @@
-import './light-mode';
+import './light-mode.js';
 
 const hoursHand = document.getElementById('hours');
 const minutesHand = document.getElementById('minutes');
