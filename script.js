@@ -14,9 +14,8 @@ function addTask() {
         li.appendChild(span);
 
     }
-
-
-    inputBox.value = "";
+    document.getElementById('add-button').addEventListener('click', addTask);
+    ;
     saveData();
 }
 
