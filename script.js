@@ -94,9 +94,7 @@ function showQuestion(){
 }
 function resetState(){
     nextButton.style.display = "none";
-    while (answerButtons.firstChild){
-        answerButtons.removeChild(answerButtons.firstChild);
-    }
+    answerButtons.innerHTML = "";
 }
 function selectAnswer(e) {
     const selectedBtn = e.target;
