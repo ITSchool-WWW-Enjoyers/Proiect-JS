@@ -1,9 +1,17 @@
 const apiKey = "8a15946d573d485bb8971932231610";
 const searchBtn = document.getElementById("searchBtn");
 
+
+
 searchBtn.addEventListener("click", function () {
     const cityInput = document.getElementById("cityInput");
     const cityName = cityInput.value;
+    function logSubmit(event) {
+        event.preventDefault();
+    }
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", logSubmit);
 
     if (cityName) {
         getTodayWeatherData(apiKey, cityName);

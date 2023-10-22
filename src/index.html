@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&family=Jua&family=Roboto+Condensed:wght@300&family=Tilt+Neon&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&family=Jua&family=Roboto+Condensed:wght@300&family=Tilt+Neon&display=swap"
         rel="stylesheet">
 </head>
 
@@ -16,8 +18,10 @@
     <div class="container">
         <h1>Weather App</h1>
         <div class="input-container">
-            <input type="text" id="cityInput" placeholder="Enter city name">
-            <button id="searchBtn">Search</button>
+            <form id="form">
+           <label><input type="text" id="cityInput" placeholder="Enter city name"></label> 
+                <button id="searchBtn" type="submit">Search</button>
+            </form>
         </div>
         <div id="weatherData" class="hidden">
             <div class="weatherData-info">
