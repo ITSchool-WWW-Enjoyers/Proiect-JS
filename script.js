@@ -32,13 +32,19 @@ listContainer.addEventListener("click", function (e) {
 }, false);
 
 
-function saveData(){
+function saveData() {
     localStorage.setItem("data", listContainer.innerHTML);
 }
 
-function showTask(){
-listContainer.innerHTML=localStorage.getItem("data");
+function showTask() {
+    listContainer.innerHTML = localStorage.getItem("data");
 
 }
 showTask();
- 
+
+inputBox.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        addTask();
+    }
+});
