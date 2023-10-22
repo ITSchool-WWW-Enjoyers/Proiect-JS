@@ -16,6 +16,8 @@ const redoButton = document.getElementById("redobutton");
 const drawRectangle = document.getElementById("drawRectangle");
 const drawEllipse = document.getElementById("drawEllipse");
 const drawTriangle = document.getElementById("drawTriangle");
+const helpButton = document.getElementById("help");
+const dialogBox = document.getElementById("help-text");
 
 /* Canvas defining
 
@@ -494,9 +496,9 @@ function redo() {
 window.addEventListener("keydown", (ev) => {
     if (drawingStateNumber > checkStateNumber) {
         redoStates = [];
-    } else if (ev.key === "x" && ev.ctrlKey) {
+    } else if (ev.key === "y" && ev.ctrlKey) {
         redo();
-    } else if (ev.metaKey === "x" && ev.ctrlKey) {
+    } else if (ev.metaKey === "y" && ev.ctrlKey) {
         redo();
     };
 });
@@ -549,3 +551,24 @@ function decreaseSize(ev) {
 
 window.addEventListener("keydown", decreaseSize);
 
+/* Help Dialog Box
+
+Define the helpDialog function which handles the appearance and dissaperance of the box containg helpful information;
+
+The function adds the "active" class if the button is pressed;
+
+We also have a function that check whether a click event has happened on the button or on not, and then removes the "active" class from the Help Dialog Box, if the target was not the button.
+
+*/
+
+function helpDialog() {
+    dialogBox.classList.toggle("active");
+};
+
+helpButton.addEventListener("click", helpDialog);
+   
+window.addEventListener("click", (e) => {
+    if(e.target !== helpButton && dialogBox.classList.contains("active")) {
+        dialogBox.classList.remove("active");
+    };
+});

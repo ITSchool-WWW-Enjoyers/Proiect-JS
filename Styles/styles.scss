@@ -36,7 +36,7 @@ body {
     cursor: pointer;
 }
 
-.action-button:last-child, .toolbar-icons:nth-child(3) {
+.action-button:last-child, .toolbar-icons:nth-child(3), .toolbar-icons:nth-child(4) {
     margin-inline-end: 3.75rem;
 }
 
@@ -135,7 +135,53 @@ body {
     @include iconhover(#3D3D3D, none)
 }
 
+.help-text {
+    position: absolute;
+    background-color: #787878; 
+    border-radius: 3rem;
+    padding: 1rem;
+    font-family: Roboto;
+    color:#FFF;
+    width: 25rem;
+    display: none;
+    transform: translate3d(-10rem,2rem,0);
+}
 
+.help-button {
+    background-color: transparent;
+    border: none;
+    padding: 0.25rem;
+    z-index: 2;
+}
 
+.help-button:hover .help-icon {
+    fill: #3D3D3D;
+}
+
+.help-button:hover .help-text {
+    display: block;
+}
+
+.active {
+    display: block;
+}
+
+.help-text > p:nth-child(2) {
+    margin-block-end: 1rem;
+}
+
+.help-text > div:last-child {
+    margin-block-end: 1rem;
+}
+
+.help-spacing {
+    margin: 0.4rem 0.5rem 0 1.25rem;
+}
+
+.help-range {
+    width: 2rem;
+    margin-inline-start: 1rem;
+    margin-block-start: 0.4rem;
+}
 
 
