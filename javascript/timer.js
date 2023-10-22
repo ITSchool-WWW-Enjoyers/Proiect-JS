@@ -20,6 +20,14 @@ const pauseTimer = () => {
     isPaused = true ;
 }
 
+const resetTimer = () => {
+    clearInterval(timer);
+    timer = null;
+    seconds = 0;
+    isPaused = false;
+    element.innerHTML = '00:00';
+};
+
 const pad = val => {
     const valString = val + "";
     return valString.length < 2 ? "0" + valString : valString;
@@ -27,3 +35,4 @@ const pad = val => {
 
 document.getElementById("startTimer").addEventListener("click", startTimer)
 document.getElementById("calculateButton").addEventListener("click", pauseTimer);
+document.getElementById("resetButton").addEventListener("click", resetTimer);

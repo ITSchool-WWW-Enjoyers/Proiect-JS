@@ -26,6 +26,8 @@ function calculateScore() {
 function resetForm() {
     document.getElementById("quizForm").reset();
     document.getElementById("result").innerHTML = "";
+    let quizForm = document.getElementById("quizForm");
+    quizForm.classList.add("d-none");
 }
 
 function startQuiz() {

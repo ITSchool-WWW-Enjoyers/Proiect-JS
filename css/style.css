@@ -71,3 +71,7 @@ p, .options{
   flex-direction: column;
   align-items: center;
 }
+
+label {
+  display: block;
+}
