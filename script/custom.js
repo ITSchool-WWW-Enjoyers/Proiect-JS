@@ -10,7 +10,6 @@ createTask.addEventListener('submit', (event) => {
         newTask.innerHTML =  `
             <input type='checkbox'>
             <span>${taskContent}</span>
-            <button class='edit'>Edit</button>
             <button class='delete'>Delete</button>
         `;
         taskList.appendChild(newTask);
