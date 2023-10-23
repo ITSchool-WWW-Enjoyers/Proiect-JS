@@ -12,12 +12,15 @@ function addTask() {
         let span = document.createElement("span");
         span.innerHTML = "\u00d7";
         li.appendChild(span);
-
     }
+
+    inputBox.value = "";
+
     document.getElementById('add-button').addEventListener('click', addTask);
-    ;
+
     saveData();
 }
+
 
 listContainer.addEventListener("click", function (e) {
     if (e.target.tagName === "LI") {
@@ -30,6 +33,13 @@ listContainer.addEventListener("click", function (e) {
     }
 }, false);
 
+inputBox.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        addTask();
+    }
+});
+
 
 function saveData() {
     localStorage.setItem("data", listContainer.innerHTML);
@@ -41,9 +51,3 @@ function showTask() {
 }
 showTask();
 
-inputBox.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        addTask();
-    }
-});
