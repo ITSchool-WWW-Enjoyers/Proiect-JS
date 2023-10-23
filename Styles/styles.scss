@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #3D3D3D;
+    margin: 2rem 3.5rem 2rem 3.5rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #787878;
+    border-radius: 2.5rem; 
+    padding: 0.87rem 5rem 0.87rem 5rem;
+    margin-block-end: 2.5rem;
+}
+
+.toolbar-icons {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.action-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.action-button:last-child, .toolbar-icons:nth-child(3), .toolbar-icons:nth-child(4) {
+    margin-inline-end: 3.75rem;
+}
+
+@mixin icon-positioning($x, $y, $z) {
+    position: absolute;
+    transform: translate3d($x, $y, $z);
+}
+
+
+.icon-position {
+    @include icon-positioning(-2.3rem,0.25rem,0)
+}
+
+.icon-position-pen {
+    @include icon-positioning(-2.3rem,0rem,0)
+}
+
+.eraser-tool {
+    @include icon-positioning(-2rem,0.25rem,0)
+}
+
+.drawing-tools {
+    width: 2.5rem;
+    height: 2.5rem;
+    opacity: 0;
+}
+
+.fill-checkbox {
+    width: 2.2rem;
+    height: 2.2rem;
+    opacity: 0;
+}
+
+@mixin selectionColor($fillcolor, $strokecolor) {
+    fill: $fillcolor;
+    stroke: $strokecolor;
+}
+
+.drawing-tools:checked + svg path.shapefill {
+    @include selectionColor(#3D3D3D, none)
+}
+
+.drawing-tools:checked + svg path.shapestroke {
+    @include selectionColor(none, #3D3D3D)
+}
+
+.fill-checkbox:checked + svg path.shapefill-exception {
+    @include selectionColor(#3D3D3D, #3D3D3D)
+}
+
+.color-picker {
+    width: 2.3rem;
+    height: 3rem;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.range-select {
+    width: 5rem;
+    margin: 0 3.75rem 0 1rem;
+    cursor: pointer;
+}
+
+.range-select::-webkit-slider-thumb {
+    background-color: #3D3D3D;
+}
+
+.color-palette {
+    @include icon-positioning(0,0.5rem,0)
+}
+
+.draw-area {
+    background-color: #FFF;
+    height: 80vh;
+    width: 100%;
+}
+
+.spacing {
+    margin-block-end: 0.5rem;
+}
+
+.checkbox-icon {
+    @include icon-positioning(-2.25rem,0.5rem,0)
+}
+
+@mixin iconhover($color, $stroke) {
+    fill: $color;
+    stroke: $color;
+}
+
+.fill-checkbox:hover + svg path.shapefill-exception {
+    @include iconhover(#3D3D3D, none)
+}
+
+.action-button:hover path {
+    @include iconhover(#3D3D3D, none)
+}
+
+.help-text {
+    position: absolute;
+    background-color: #787878; 
+    border-radius: 3rem;
+    padding: 1rem;
+    font-family: Roboto;
+    color:#FFF;
+    width: 25rem;
+    display: none;
+    transform: translate3d(-10rem,2rem,0);
+}
+
+.help-button {
+    background-color: transparent;
+    border: none;
+    padding: 0.25rem;
+    z-index: 2;
+}
+
+.help-button:hover .help-icon {
+    fill: #3D3D3D;
+}
+
+.help-button:hover .help-text {
+    display: block;
+}
+
+.active {
+    display: block;
+}
+
+.help-text > p:nth-child(2) {
+    margin-block-end: 1rem;
+}
+
+.help-text > div:last-child {
+    margin-block-end: 1rem;
+}
+
+.help-spacing {
+    margin: 0.4rem 0.5rem 0 1.25rem;
+}
+
+.help-range {
+    width: 2rem;
+    margin-inline-start: 1rem;
+    margin-block-start: 0.4rem;
+}
+
+
