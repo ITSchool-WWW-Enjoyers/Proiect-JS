@@ -1,0 +1,86 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('backgoundimage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title {
+    font-size: 2rem;
+    font-family: 'Tilt Neon';
+    color: #090106;
+}
+
+.input-container {
+    margin: 1rem;
+}
+
+.weatherData-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1rem solid white;
+    border-radius: 1rem;
+    background-color: white;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.weatherForecastContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 15px;
+}
+
+.background-image {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 5rem;
+    font-family: 'Tilt Neon', sans-serif;
+    color: #da097c;
+}
+
+input {
+    padding: 6px;
+    font-size: 20px;
+}
+
+button {
+    padding: 10px 10px;
+    font-size: 16px;
+    background-color: #da097c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .weatherForecastContainer {
+        display: flex;
+        gap: 2rem;
+    }
+}

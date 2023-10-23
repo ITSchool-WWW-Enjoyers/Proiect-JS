@@ -1,0 +1,11 @@
+{
+  "source": "src/index.html",
+  "browserslist": "> 5%",
+  "scripts": {
+    "start": "vite ./src",
+    "build": "vite build ./src --outDir ../dist"
+  },
+  "dependencies": {
+    "vite": "^4.4.11"
+  }
+}
