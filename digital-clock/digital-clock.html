@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceas Digital</title>
+    <link rel="stylesheet" href="digital-clock.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="title">Ceas Analogic & Digital Online</h1>
+        <img class="light-mode-icon" id="light-mode-switch" src="../light-mode.svg" alt="light mode">
+    </header>
+    <div class="main">
+        <div class="digital-clock">
+            <span id="hours">00:00:00</span>
+        </div>
+        <div class="footer-container">
+            <div class="date-container">
+                <p id="date-label"></p>
+            </div>
+            <div class="time-zone-list">
+                <label for="timezone">Alege fusul orar:</label>
+                <select id="timezone">
+                    <option value="Europe/Bucharest">Europe/Bucharest</option>
+                </select>
+            </div>
+            <div class="a-group">
+                <a class="button" href="digital-clock.html">Ceas Digital</a>
+                <a class="button" href="../index.html">Ceas Analogic</a>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="digital-clock.js"></script>
+</body>
+</html>

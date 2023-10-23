@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+
+body{
+    overflow: hidden;
+    color: #ffffff;
+    background: radial-gradient(circle, rgba(57, 57, 60, 0.645) 2%, rgba(40, 40, 40, 1) 93%);
+    background-repeat: no-repeat;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 0.5rem;
+    margin-block-start: 0.5rem;
+}
+
+
+.title{
+    font-size: 0.7rem;
+}
+
+
+.light-mode-icon{
+    width: 1rem;
+}
+
+
+.light-mode{
+    background: radial-gradient(circle, rgba(252, 252, 253, 0.645) 2%, rgb(203, 199, 199) 93%);
+    color: #484848;
+}
+
+
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    margin-block-end: 2rem;
+}
+
+
+.date-container{
+    font-size: 1rem;
+
+}
+
+
+.time-zone-list{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 80%;
+    height: 80%;
+}
+
+
+.time-zone-list label{
+    font-size: 1rem;
+    display: flex;
+    align-self: flex-start;
+}
+
+
+#timezone {
+    color: #ffffff;
+    background-color:#484848;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: none;
+    width: 100%;
+}
+
+
+.a-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 80%;
+    height: 80%;
+}
+
+
+.button{
+    text-decoration: none;
+    padding: 1rem;
+    background-color:#484848;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0.8rem;
+}
+
+
+.button:focus{
+    background-color: #9c9a9a6e;
+}
+
+
+@media (min-width: 700px){
+
+    .title{
+        font-size: 1rem;
+    }
+    
+    .light-mode-icon{
+        width: 1.7rem;
+    }
+
+    .footer-container{
+        width: 50%;
+        max-width: 20rem;
+    }
+
+    .date-container{
+        font-size: 1.5rem;
+    }
+
+    .time-zone-list{
+        width: 100%;
+    }
+
+    #timezone{
+        width: 100%;
+        max-width: 20rem;
+    }
+
+    .a-group{
+        width: 100%;
+    }
+
+    .button{
+        width: 100%;
+        max-width: 9rem;
+    }
+
+}

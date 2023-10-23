@@ -1,0 +1,169 @@
+
+.main{
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.clock{
+    width:15rem;
+    height: 15rem;
+    border-radius: 50%;
+    background: rgb(255, 250, 250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 4px solid #ffffff;
+    box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.5), inset -4px -4px 10px rgba(67, 67, 67, 0.3), 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: rgba(147, 147, 152, 0.959);
+    z-index: 1000;
+}
+
+.clock::after{
+    content: '';
+    width: 7.5rem;
+    height: 7.5rem;
+    background: rgb(249, 246, 246);
+    border-radius: 50%;
+}
+
+.number{
+    position: absolute;
+    transform: rotate(calc(30deg * var(--hour-rotation))); 
+    inset: 0.8rem;
+    text-align: center;
+}
+
+.number b{
+    transform: rotate(calc(-30deg * var(--hour-rotation)));
+    display: inline-block;
+    font-size: 0.9rem; 
+    color:#4848488c;
+}
+
+.number .bold {
+    color: #4c4a4a;
+    font-size: 1.1rem; 
+}
+
+	
+.clock-hands-container{
+    position: absolute;
+}
+
+
+.clock-hands-container span{
+    position: absolute;
+    width: 0.3rem;
+    border-radius: 100% 100% 5px 5px;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%);    
+}
+
+.hours-hand{
+    background-color: #16161658;
+    height: 2.8rem;
+}
+
+.minutes-hand{
+    background-color: #16161658;
+    height: 4rem;
+}
+
+.seconds-hand{
+    background-color: #e53b1d;
+    height: 4.6rem;
+}
+
+.hour-tick {    
+    width: 0.2rem;
+    height: 0.52rem;
+    background-color:#484848cb;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 0 110px;
+    transform: translateY(-110px) rotate(calc(30deg * var(--hour-tick-rotation))); 
+}
+ 
+ 
+.minute-tick {
+     width: 0.1rem;
+     height: 0.3rem;
+     background-color:#4848485f;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform-origin: 0 110px;
+     transform: translateY(-110px) rotate(calc(6deg * var(--minute-tick-rotation))); 
+}
+
+
+@media (min-width: 700px){
+    .clock{
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .clock::after{
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .number{
+        inset: 1.3rem;
+    }
+
+    .number b{
+        font-size: 1.2rem; 
+    }
+
+    .number .bold {
+        font-size: 1.3rem; 
+    }
+    
+    .clock-hands-container span{
+        width: 0.4rem;
+    }
+
+    .hours-hand{
+        height: 3.4rem;
+    }
+    
+    .minutes-hand{
+        height: 5.2rem;
+    }
+    
+    .seconds-hand{
+        height: 5.8rem;
+    }
+
+    .hour-tick {
+        width: 0.25rem;
+        height: 0.62rem;  
+        transform-origin: 0 150px;
+        transform: translateY(-150px) rotate(calc(30deg * var(--hour-tick-rotation)));  
+    }
+
+    .minute-tick {
+        width: 0.1rem;
+        height: 0.5rem;
+        transform-origin: 0 150px;
+        transform: translateY(-150px) rotate(calc(6deg * var(--minute-tick-rotation))); 
+    }
+}
