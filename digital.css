@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #EBE4D1;
+    margin: 150px 0;
+    text-align: center;
+    font-family: Russo One;
+    padding-block-start: 20px ;
+}
+
+#clock {
+    background: #26577C;
+    font-size: 100px;
+    color: #fff;
+    width: 30%;
+    margin: 0 auto;
+    border-radius: 32px;
+}
+.digital-btn{
+    color: white;
+    background: #E55604;
+    border: none;
+    padding: 5px;
+    margin-block-end: 10px;
+    border-radius: 20px;
+    width: 10%;
+    font-size: 50px;
+}
+.analog-btn{
+    color: white;
+    background: #E55604;
+    border: none;
+    padding: 5px;
+    border-radius: 20px;
+    width: 10%;
+    font-size: 50px;
+    margin-block-start: 40px;
+}
+    
+.hide{
+    display: none;
+}
