@@ -21,28 +21,25 @@ searchBtn.addEventListener("click", function () {
     }
 });
 
-function getTodayWeatherData(apiKey, city) {
+async function getTodayWeatherData(apiKey, city) {
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
 
-            if (data !== undefined && data !== null) {
-                const weatherData = {
-                    temperature: data.current.temp_c,
-                    weatherDescription: data.current.condition.text,
-                    humidity: data.current.humidity,
-                    windSpeed: data.current.wind_kph,
-                };
+    let apiResponse = await fetch(apiUrl);
+    let jsonResponse = await apiResponse.json();
 
-                displayWeatherData(weatherData);
-            } else {
-                alert("City not found. Please check the city name.");
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching weather data:", error);
-        });
+    if (jsonResponse !== undefined && jsonResponse !== null) {
+        const weatherData = {
+            temperature: jsonResponse.current.temp_c,
+            weatherDescription: jsonResponse.current.condition.text,
+            humidity: jsonResponse.current.humidity,
+            windSpeed: jsonResponse.current.wind_kph,
+        };
+
+        displayWeatherData(weatherData);
+    } else {
+        alert("City not found. Please check the city name.");
+    }
+
 }
 
 function displayWeatherData(data) {
@@ -60,32 +57,28 @@ function displayWeatherData(data) {
     weatherDataContainer.classList.remove("hidden");
 }
 
-function getForecastWeatherData(apiKey, city) {
+async function getForecastWeatherData(apiKey, city) {
     const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=4&aqi=no`;
+    let apiResponse = await fetch(apiUrl);
+    let jsonResponse = await apiResponse.json();
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(forecastData => {
-            if (forecastData.error) {
-                alert(forecastData.error.message);
-            }
-            if (forecastData !== undefined && forecastData !== null) {
-                for (var i = 1; i < forecastData.forecast.forecastday.length; i++) {
-                    const weatherDataForecast = {
-                        temperature: forecastData.forecast.forecastday[i].day.avgtemp_c,
-                        weatherDescription: forecastData.forecast.forecastday[i].day.condition,
-                        humidity: forecastData.forecast.forecastday[i].day.avghumidity,
-                        windSpeed: forecastData.forecast.forecastday[i].day.maxwind_kph,
-                    };
-                    displayForecastWeatherData(weatherDataForecast, i);
-                }
-            } else {
-                alert("City not found. Please check the city name.");
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching weather data:", error);
-        });
+    if (jsonResponse.error) {
+        alert(jsonResponse.error.message);
+    }
+    if (jsonResponse !== undefined && jsonResponse !== null) {
+        for (var i = 1; i < jsonResponse.forecast.forecastday.length; i++) {
+            const weatherDataForecast = {
+                temperature: jsonResponse.forecast.forecastday[i].day.avgtemp_c,
+                weatherDescription: jsonResponse.forecast.forecastday[i].day.condition,
+                humidity: jsonResponse.forecast.forecastday[i].day.avghumidity,
+                windSpeed: jsonResponse.forecast.forecastday[i].day.maxwind_kph,
+            };
+            displayForecastWeatherData(weatherDataForecast, i);
+        }
+    } else {
+        alert("City not found. Please check the city name.");
+    }
+
 }
 
 function displayForecastWeatherData(forecastData, index) {
