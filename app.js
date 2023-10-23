@@ -21,7 +21,8 @@ function getTime(){
     minutesHand.style.transform = 'rotate('+ (minutes * timeInterval + seconds / 10) + 'deg)';
     hoursHand.style.transform = 'rotate('+ (hours * 30 + minutes / 2) + 'deg)';
 };
-setInterval(getTime);
+getTime();
+setInterval(getTime,1000);
 
 //Hide
 const dBtn = document.querySelector(".digital-btn");

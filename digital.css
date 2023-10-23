@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 body {
@@ -14,7 +13,7 @@ body {
 }
 
 #clock {
-    background: #26577C;;
+    background: #26577C;
     font-size: 100px;
     color: #fff;
     width: 30%;
@@ -45,6 +44,3 @@ body {
 .hide{
     display: none;
 }
-
-
-
