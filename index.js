@@ -27,16 +27,16 @@ function displayTime(){
     const dateTime = new Date().toLocaleString('en-EN',  {timeZone: selectedTimezone});
 
     dateLabel.innerText = date;
-    let currentTime = new Date(dateTime);
+    const currentTime = new Date(dateTime);
 
-    let hours = currentTime.getHours();
-    let minutes = currentTime.getMinutes();
-    let seconds = currentTime.getSeconds();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const seconds = currentTime.getSeconds();
 
     //Aflam rotatia acelor in grade
-    let hoursHandRotation = 30*hours + minutes/2;
-    let minutesHandRotation = 6*minutes;
-    let secondsHandRotation = 6*seconds;
+    const hoursHandRotation = 30*hours + minutes/2;
+    const minutesHandRotation = 6*minutes;
+    const secondsHandRotation = 6*seconds;
 
     hoursHand.style.transform = `rotate(${hoursHandRotation}deg)`;
     minutesHand.style.transform = `rotate(${minutesHandRotation}deg)`;
