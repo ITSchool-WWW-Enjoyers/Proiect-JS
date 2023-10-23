@@ -10,16 +10,17 @@ function addTask() {
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
         let span = document.createElement("span");
-        span.innerHTML = "\u00d7";
+        span.innerHTML = "&times;";
         li.appendChild(span);
     }
 
     inputBox.value = "";
 
-    document.getElementById('add-button').addEventListener('click', addTask);
 
     saveData();
 }
+
+document.getElementById('add-button').addEventListener('click', addTask);
 
 
 listContainer.addEventListener("click", function (e) {
