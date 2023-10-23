@@ -274,7 +274,7 @@ function drawSquare(e) {
         return;
     }
     
-    let { x, y } = getMousePos(canvas, e);
+    const { x, y } = getMousePos(canvas, e);
 
     let width = x - rectStart.x;
     let height = y - rectStart.y;
@@ -313,7 +313,7 @@ function drawCircle(e) {
         return;
     };
 
-    let { x, y } = getMousePos(canvas, e);
+    const { x, y } = getMousePos(canvas, e);
 
     let width = x - rectStart.x;
     let height = y - rectStart.y;
@@ -355,7 +355,7 @@ function drawTriangl(e) {
         return;
     };
 
-    let { x, y } = getMousePos(canvas, e);
+    const { x, y } = getMousePos(canvas, e);
 
     const sideLength = Math.sqrt(Math.pow(x - rectStart.x, 2) + Math.pow(y - rectStart.y, 2));
 
@@ -458,7 +458,7 @@ window.addEventListener("keydown", (ev) => {
         undo();
     };
 
-    if (ev.metaKey === "z" && ev.ctrlKey) {
+    if (ev.key === "z" && ev.metaKey) {
         undo();
     };
 });
@@ -498,7 +498,7 @@ window.addEventListener("keydown", (ev) => {
         redoStates = [];
     } else if (ev.key === "y" && ev.ctrlKey) {
         redo();
-    } else if (ev.metaKey === "y" && ev.ctrlKey) {
+    } else if (ev.key === "y" && ev.metaKey) {
         redo();
     };
 });
